@@ -1,0 +1,26 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "A Google Apps Script project.",
+  "scripts": {
+    "build": "tsc && webpack",
+    "push": "npm run build && clasp push",
+    "lint": "eslint",
+    "format": "prettier"
+  },
+  "license": "GPL",
+  "devDependencies": {
+    "@types/google-apps-script": "^1.0.12",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "clasp": "^1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-googleappsscript": "^1.0.3",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "private": true
+}
