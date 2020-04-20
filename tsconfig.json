@@ -8,7 +8,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
-    "outDir": "build"
+    "outDir": "build",
+    "lib": ["ES2020"]
   },
   "include": ["src"]
 }
