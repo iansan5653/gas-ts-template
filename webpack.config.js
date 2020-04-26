@@ -1,10 +1,14 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-undef, @typescript-eslint/no-var-requires */
+const GasPlugin = require("gas-webpack-plugin");
+
 module.exports = {
-  mode: 'production',
-  entry: './build',
+  mode: "development",
+  entry: "./build",
   output: {
     path: __dirname,
-    filename: 'Code.js',
-    libraryTarget: "var"
-  }
+    filename: "Code.js",
+    libraryTarget: "var",
+  },
+  plugins: [new GasPlugin()],
+  devtool: false,
 };
