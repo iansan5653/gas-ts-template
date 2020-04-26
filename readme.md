@@ -74,3 +74,16 @@ terminal (as long as you have Node & npm installed):
   compile to CommonJS modules from the `src` folder to the `build` folder.
 - `webpack.config.js` Configures Webpack to take files from the `build` folder
   and dependencies and merge them all into a single `Code.js` file.
+
+## Notes
+
+### Circular Dependencies
+
+Circular dependencies (files that depend on each other in a circular manner) can
+cause unexpected issues like "X is not a function" or "X is not defined". If you
+are seeing these errors in your project and you know they are wrong, try
+checking for circular dependencies using
+[`madge`](https://github.com/pahen/madge) (not included in this template):
+
+1. Install `madge` globally with `npm i --global madge`.
+2. Check for circular dependencies with `madge src/index.ts --circular`.
