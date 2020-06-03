@@ -16,9 +16,11 @@ is actually pushed to Google Apps.
 
 ## Getting Started
 
-1. Install Node.js.
-2. Click "Use This Template" in GitHub to start a new repository. Clone your new
-   repo and open a terminal in the local directory.
+1. Install [Node.js](https://nodejs.org/en/).
+2. Click
+   ["Use This Template"](https://github.com/iansan5653/gas-ts-template/generate)
+   to start a new repository. Clone your new repo and open a terminal in the
+   local directory.
 3. Install all of the dependencies by running `npm install`.
 4. Start a new Google Apps Script project by going to
    https://script.google.com/home and clicking "New Project". You can also start
