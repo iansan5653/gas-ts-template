@@ -145,13 +145,13 @@ checking for circular dependencies using
 - `.clasp.json` Provides the configuration for Clasp, the command-line tool
   which pushes code to Google Apps Script.
 - `.claspignore` Tells Clasp to ignore every file except for `Code.js`,
-  `appscript.json`, and `readme_appscript.md`.
+  `appsscript.json`, and `readme_appsscript.md`.
 - `.gitignore` Tells Git to ignore output files and `node_modules`.
 - `.prettierrc` Configures Prettier, the code formatter.
-- `appscript.json` Controls the project setup and Apps Script environment. You
+- `appsscript.json` Controls the project setup and Apps Script environment. You
   can change the exception logger, but don't change the runtime version.
 - `package.json` Lists the project dependencies and scripts.
-- `readme_appscript.md` If anyone opens your project in the Apps Script editor,
+- `readme_appsscript.md` If anyone opens your project in the Apps Script editor,
   they'll just see a jumbled file. This note helps them realize that the project
   should be edited outside of that environment.
 - `readme.md` This file.
