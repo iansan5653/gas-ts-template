@@ -53,7 +53,29 @@ terminal (as long as you have Node & npm installed):
   The first time you run this, you will be prompted to log in to your Google
   account.
 
+## Automated GitHub Workflow
+
+The template comes with a built-in configuration file for
+[GitHub Workflows](https://help.github.com/en/actions/configuring-and-managing-workflows).
+The workflow is configured to run on every push to the `master` branch as well
+as on every Pull Request as a Check, and it simply checks the code to ensure
+that it passes linting and is buildable (has no type/syntax errors). This is
+known as _continuous integration_ and provides a form of automated testing to
+ensure that your project's code is always valid.
+
+For larger projects where more than one developer will be collaborating, it is
+reccomended to protect the `master` branch and only allow changes to it through
+Pull Requests in which all checks pass. You can learn more about this from
+GitHub's
+[help articles](https://help.github.com/en/github/administering-a-repository/about-protected-branches).
+
+If you would like to disable the workflow, simply delete the
+[`checks.yml`](./.github/workflows/checks.yml) file.
+
 ## Development Notes
+
+The following notes have important information for writing code for Google Apps
+Script using this template. Please read through them before you start.
 
 ### Exposing Functions to Google Apps Script
 
@@ -99,6 +121,11 @@ checking for circular dependencies using
 
 ## Included Files
 
+- `.github`
+  - `workflows` All GitHub workflows are configured using YAML files in this
+    directory.
+    - `checks.yml` This is where the continuous integration workflow is
+      configured.
 - `src` This is where you'll put all your TypeScript files.
   - `example.ts` Gives an example of how to export something from a local file.
   - `index.ts` Provides you with the five basic triggers prebuilt, as well as an
