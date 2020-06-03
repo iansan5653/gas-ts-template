@@ -38,8 +38,13 @@ is actually pushed to Google Apps.
 8. Optional: lint your code with `npm run lint` and/or auto-format your code
    with `npm run format`. Typically you will want to install the ESLint and/or
    Prettier extensions in your preferred code editor.
-9. Compile the TypeScript files into a single JavaScript file and push it to
-   Google Apps by running `npm run push`. Log in to Google if prompted.
+9. Log in to Google Apps Script by running `npm run login`. Make sure to use the
+   same account you used to make the Google Apps Script project.
+10. Compile the TypeScript files into a single JavaScript file and push it to
+    Google Apps by running `npm run push`. Run this every time you make changes.
+    If you ever change the project configuration (ie, by adding new APIs), you
+    will need to sync the `appsscript.json` file by running `npm run pull`
+    before you run `npm run push`.
 
 ## Available Scripts
 
@@ -50,6 +55,10 @@ terminal (as long as you have Node & npm installed):
 - `npm run build` Build your project to ensure it compiles properly.
 - `npm run format` Format your code automatically using Prettier.
 - `npm run lint` Check your code for common errors using ESLint.
+- `npm run login` Login to the Google Apps Script client so you can push/pull.
+  You will need to run this once on each device you use.
+- `npm run pull` Fetch the latest changes from Google Apps Script. You should
+  only need to do this if you change the project settings.
 - **`npm run push` Build your project and push it to Google Apps in one step.**
   The first time you run this, you will be prompted to log in to your Google
   account.
@@ -78,7 +87,7 @@ If you would like to disable the workflow, simply delete the
 The following notes have important information for writing code for Google Apps
 Script using this template. Please read through them before you start.
 
-### Exposing Functions to Google Apps Script
+### ***Important***: Exposing Functions to Google Apps Script
 
 In order for your Google Apps to run any of your code, you'll need to expose one
 or more functions to the engine. In the traditional Google Apps Script

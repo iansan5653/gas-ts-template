@@ -6,7 +6,8 @@
     "build": "tsc && webpack",
     "push": "npm run build && clasp push",
     "lint": "eslint",
-    "format": "prettier"
+    "format": "prettier",
+    "login": "clasp login"
   },
   "license": "GPL",
   "devDependencies": {
