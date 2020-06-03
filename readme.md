@@ -23,13 +23,14 @@ is actually pushed to Google Apps.
    local directory.
 3. Install all of the dependencies by running `npm install`.
 4. Start a new Google Apps Script project by going to
-   https://script.google.com/home and clicking "New Project". You can also start
-   a project tied directly to a specific Google Apps file by opening the file
-   and clicking "Tools" -> "Script Editor".
-5. Click "File" -> "Project Properties" in the Google Apps Script editor. Enter
-   a project name if prompted to, then on the "Info" tab in the "Project
-   Properties" window, find and copy the "Script ID".
-6. Replace "SCRIPT_ID" in `.clasp.json` with your project's ID.
+   https://script.google.com/home and clicking **New Project**. You can also
+   start a project tied directly to a specific Google Apps file by opening the
+   file and clicking **Tools** -> **Script Editor**.
+5. Click **File** -> **Project Properties** in the Google Apps Script editor.
+   Enter a project name if prompted to, then on the **Info** tab in the
+   **Project Properties** window, find and copy the **Script ID**.
+6. Replace `SCRIPT_ID` in [`.clasp.json`](./.clasp.json) with your project's ID.
+   This ID is _not_ a secret - you can safely commit it to your repository.
 7. Add your TypeScript code in the `src` folder. Note that unlike in a normal
    Google Apps Script project, only what is imported into the `index.ts` file
    will be compiled into the script, and all files must be in the `src` folder
