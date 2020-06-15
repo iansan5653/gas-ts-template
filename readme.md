@@ -7,7 +7,7 @@ built in.
 
 The project is set up with a TypeScript configuration that transforms your
 TypeScript files in the `src` directory into JavaScript files in the `build`
-directory. It's not enought to upload those files as-is to Google Apps, however,
+directory. It's not enough to upload those files as-is to Google Apps, however,
 because Apps Script doesn't support installing and running dependencies, and
 uploaded files are run in random order - they aren't linked together at all. To
 solve this problem, a second build step uses Webpack to combine all files and
