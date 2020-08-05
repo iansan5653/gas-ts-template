@@ -2,7 +2,7 @@
 
 **Note: The GitHub Workflows build will always be failing for this template
 repo as it doesn't have a package-lock.json file. Don't let that stop you from
-using the template!**
+using the template! When you run `npm i`, just make sure to commit the lockfile.**
 
 This repository provides a simple template to start a new
 [Google Apps Script](https://developers.google.com/apps-script) project with
