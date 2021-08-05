@@ -98,7 +98,7 @@ or more functions to the engine. In the traditional Google Apps Script
 environment, you'd do this by declaring global functions, however in this setup
 there is no concept of 'global' as all files are modules.
 
-Instead, you need to add these to the `global` object. This object is declared
+Instead, you need to add these to the `global` object. This object type is declared
 in `src/global.d.ts` so you can assign to it from any file, although as a matter
 of best-practice you may want to confine global assignments to your `index.ts`
 file. Any function added to the `global` object will be available under that
@@ -107,9 +107,9 @@ name to all
 anywhere else Google Apps might need to call your function, such as from a
 [custom menu](https://developers.google.com/apps-script/guides/menus).
 
-Note that the field in `global` that you assign the function to is treated as
-the function name, not the actual function name. For example, the following
-function will be called by the `onOpen` trigger, _not_ the `onEdit` trigger:
+Note that the field in `global` that you assign the function, not the function's
+name, is treated as the function name. For example, the following function will
+be called by the `onOpen` trigger, _not_ the `onEdit` trigger:
 
 ```ts
 function onEdit() {}
