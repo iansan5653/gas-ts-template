@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/appsscript.json",
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8"
 }
