@@ -20,7 +20,7 @@
     "eslint-plugin-googleappsscript": "^1.0.3",
     "gas-webpack-plugin": "^1.0.2",
     "prettier": "^2.0.4",
-    "typescript": "^3.8.3",
+    "typescript": "^4.5.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
