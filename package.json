@@ -4,12 +4,13 @@
   "description": "A Google Apps Script project.",
   "scripts": {
     "build": "tsc && webpack",
-    "push": "npm run build && clasp push",
+    "push": "npm run build && clasp push -f",
     "lint": "eslint",
     "format": "prettier",
     "login": "clasp login"
   },
   "license": "GPL",
+  "dependencies": {},
   "devDependencies": {
     "@types/google-apps-script": "^1.0.12",
     "@typescript-eslint/eslint-plugin": "^2.28.0",

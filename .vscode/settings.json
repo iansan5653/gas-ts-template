@@ -1,4 +1,6 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": { "source.organizeImports": true },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "json.schemas": [
     {
