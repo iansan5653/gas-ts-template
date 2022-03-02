@@ -1,0 +1,57 @@
+version: 0.1.0
+name: Google Apps Script+TypeScript Template
+description: Creates a Google Apps Script project for which code will be written in TypeScript.
+branding:
+  icon: file-text
+  color: blue
+
+inputs:
+  - name: clasp-credentials
+    description: Clasp Credentials. This will be kept secret. To obtain, install Clasp with "npm i --global clasp". Then login with "clasp login" to the Google account that will own this project. This will create a ".clasprc" file. Paste the entire contents of that file here.
+    type: string
+    required: true
+    is-secret: true
+
+  - name: project-title
+    description: Project Title
+    type: string
+    required: true
+
+  - name: parent-id
+    description: "Parent File ID. Only required if this will be attached to a Google Drive file; leave empty to create a standalone project. The ID is in the document URL, ie: https://docs.google.com/presentation/d/{id}/edit"
+    type: string
+    required: false
+
+  - name: project-type
+    description: Project Type. Ignored if a parent file ID is provided.
+    type: string
+    default: standalone
+    validvalues: [standalone, docs, sheets, slides, forms, webapp, api]
+
+configs:
+  repo-metadata:
+    secrets:
+      - name: CLASPRC
+        value: ${{ inputs.clasp-credentials }}
+    topics:
+      - apps-script
+      - typescript
+      - google-apps
+
+  branches:
+    - name: main
+      parameters:
+        allow-deletions: false
+        allow-force-pushes: false
+  
+  environments:
+    - name: staging
+      parameters:
+        allowed-branch-rules:
+          - main
+    - name: production
+    
+  security:
+    parameters:
+        vulnerability-alerts: true
+        automated-security-fixes: true

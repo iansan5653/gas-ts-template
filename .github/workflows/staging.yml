@@ -1,0 +1,19 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    uses: ./.github/workflows/checks.yml
+  login:
+    uses: ./.github/workflows/login.yml
+  push:
+    runs-on: ubuntu-latest
+    name: Push to Project
+    needs: [build, login]
+    environment: staging
+    steps:
+      - run: clasp push -f

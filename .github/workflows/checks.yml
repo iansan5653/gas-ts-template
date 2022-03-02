@@ -1,17 +1,15 @@
-name: Run Checks
+name: Build & Run Checks
 
 on:
-  push:
-    branches:
-      - master
+  workflow_call:
   pull_request:
 
 jobs:
-  build_lint:
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
-    name: Build & Lint
     steps:
-      - name: Fetch Repository
+      - name: Fetch Code
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
@@ -24,7 +22,17 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install Dependencies
         run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Build
-        run: npm run build
+
+  lint:
+    needs: setup
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run lint
+
+  build:
+    needs: setup
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run build

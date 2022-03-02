@@ -1,0 +1,33 @@
+name: Initialize Google Apps Script Project
+
+on:
+  workflow_dispatch:
+    inputs:
+      project-title:
+        description: Name of the project.
+        required: true
+        type: string
+      parent-id:
+        description: ID of the parent file to create the project under.
+        required: false
+        type: string
+      project-type:
+        description: Type of project to create. Ignored if parent-id is provided.
+        required: false
+        default: standalone
+        type: string
+
+jobs:
+  login:
+    uses: ./.github/workflows/login.yml
+  create-project:
+    needs: login
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Project
+        run: clasp create --title ${{ inputs.project-title }} --rootDir ./dist ${{ inputs.parent-id == '' && join('--type', inputs.project-type) || join('--parentId', inputs.parent-id)}}
+      - name: Push Clasp Config
+        run: |
+          git add .clasp.json
+          git commit -m "Create Clasp configuration file"
+          git push

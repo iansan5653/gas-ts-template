@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   entry: "./build",
   output: {
-    path: __dirname,
+    path: `${__dirname}/dist`,
     filename: "Code.js",
     libraryTarget: "var",
   },

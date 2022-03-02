@@ -1,0 +1,19 @@
+name: Login to Clasp
+
+on:
+  workflow_call:
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    name: Login
+    steps:
+      - name: Install Clasp
+        run: npm install --global @google/clasp
+      - name: Create Creds File
+        run: echo ${{ secrets.CLASPRC }} > .clasprc.json
+      - name: Login
+        run: clasp login --creds .clasprc.json
+      # So dependent jobs don't accidentally publish the credentials
+      - name: Delete Creds File
+        run: rm .clasprc.json
