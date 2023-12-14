@@ -20,36 +20,38 @@ is actually pushed to Google Apps.
 
 ## Getting Started
 
-1. Install [Node.js](https://nodejs.org/en/).
 2. Click
    ["Use This Template"](https://github.com/iansan5653/gas-ts-template/generate)
    to start a new repository. Clone your new repo and open a terminal in the
    local directory. This template includes some configuration for VSCode, but
    you can use any editor.
-3. Install all of the dependencies by running `npm install`.
+1. Ensure [Node.js](https://nodejs.org/en/) is installed on your system, then
+   install all of the dependencies by running `npm install`. Alternatively,
+   start a Codespace in your new repository and dependencies will be installed
+   automatically.
 4. Start a new Google Apps Script project by going to
-   https://script.google.com/home and clicking **New Project**. You can also
+   https://script.google.com/home and clicking **New project**. You can also
    start a project tied directly to a specific Google Apps file by opening the
    file and clicking **Tools** -> **Script Editor**.
-5. Click **File** -> **Project Properties** in the Google Apps Script editor.
-   Enter a project name if prompted to, then on the **Info** tab in the
-   **Project Properties** window, find and copy the **Script ID**.
+5. Click the gear icon in the Google Apps Script editor sidebar. Copy the 
+   **Script ID**.
 6. Replace `SCRIPT_ID` in [`.clasp.json`](./.clasp.json) with your project's ID.
    This ID is _not_ a secret - you can safely commit it to your repository.
-7. Add your TypeScript code in the `src` folder. Note that unlike in a normal
-   Google Apps Script project, only what is imported into the `index.ts` file
-   will be compiled into the script, and all files must be in the `src` folder
-   (except external dependencies).
+7. Write your TypeScript code in the `src` folder. Note that `index.ts` is the
+   entrypoint for your project. Only what is imported into the `index.ts` file
+   will be compiled into the script.
 8. Optional: lint your code with `npm run lint` and/or auto-format your code
    with `npm run format`. Typically you will want to install the ESLint and/or
    Prettier extensions in your preferred code editor.
-9. Log in to Google Apps Script by running `npm run login`. Make sure to use the
-   same account you used to make the Google Apps Script project.
-10. Compile the TypeScript files into a single JavaScript file and push it to
-    Google Apps by running `npm run push`. Run this every time you make changes.
-    If you ever change the project configuration (ie, by adding new APIs), you
-    will need to sync the `appsscript.json` file by running `npm run pull`
-    before you run `npm run push`.
+10. Deploy your code to Google Apps:
+    1. Log in to Google Apps Script by running `npm run login`. Make sure to
+        use the same account you used to make the Google Apps Script project.
+    2. Compile the TypeScript files into a single JavaScript file and push it
+        to Google Apps by running `npm run push`. Run this every time you make
+        changes.
+    3. If you ever change the project configuration (ie, by adding new APIs),
+        you will need to grab the latest the `appsscript.json` file from Google
+        by running `npm run pull` before you run `npm run push`.
 
 ## Available Scripts
 
@@ -72,14 +74,14 @@ terminal (as long as you have Node & npm installed):
 
 The template comes with a built-in configuration file for
 [GitHub Workflows](https://help.github.com/en/actions/configuring-and-managing-workflows).
-The workflow is configured to run on every push to the `master` branch as well
+The workflow is configured to run on every push to the `main` branch as well
 as on every Pull Request as a Check, and it simply checks the code to ensure
 that it passes linting and is buildable (has no type/syntax errors). This is
 known as _continuous integration_ and provides a form of automated testing to
 ensure that your project's code is always valid.
 
 For larger projects where more than one developer will be collaborating, it is
-reccomended to protect the `master` branch and only allow changes to it through
+reccomended to protect the `main` branch and only allow changes to it through
 Pull Requests in which all checks pass. You can learn more about this from
 GitHub's
 [help articles](https://help.github.com/en/github/administering-a-repository/about-protected-branches).
