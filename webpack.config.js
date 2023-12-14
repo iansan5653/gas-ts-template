@@ -2,12 +2,12 @@
 const GasPlugin = require("gas-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
+  context: __dirname,
   entry: "./build/index.js",
   output: {
     path: __dirname,
     filename: "Code.js",
-    libraryTarget: "var",
   },
   plugins: [new GasPlugin()],
   devtool: false,
