@@ -5,18 +5,13 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint", "googleappsscript"],
+  "plugins": [
+    "@typescript-eslint",
+    "googleappsscript"
+  ],
   "env": {
-    "googleappsscript/googleappsscript": true,
-    "es6": true
+    "googleappsscript/googleappsscript": true
   },
   "ignorePatterns": [
     "*.js"

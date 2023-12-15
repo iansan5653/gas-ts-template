@@ -7,7 +7,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
     "outDir": "build",
     "lib": [
       "ESNext"
