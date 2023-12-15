@@ -2,6 +2,7 @@
   "compilerOptions": {
     // GAS uses the v8 runtime in sync with Chrome now, so it always has the latest ES features. No need to downcompile.
     "target": "ESNext",
+    "moduleResolution": "Bundler",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
