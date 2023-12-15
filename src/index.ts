@@ -35,9 +35,3 @@ export function doGet(e: GoogleAppsScript.Events.DoGet): void {
 export function doPost(e: GoogleAppsScript.Events.DoPost): void {
   console.log(e);
 }
-
-global.onOpen = onOpen;
-global.onEdit = onEdit;
-global.onInstall = onInstall;
-global.doPost = doPost;
-global.doGet = doGet;

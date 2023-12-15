@@ -1,14 +1,20 @@
-/* eslint-disable no-undef, @typescript-eslint/no-var-requires */
 const GasPlugin = require("gas-webpack-plugin");
 
+const entry = "./build/index.js";
+
 module.exports = {
-  mode: "production",
+  // we always use dev mode because bundle size is unimportant - code runs server-side
+  mode: "development",
   context: __dirname,
-  entry: "./build/index.js",
+  entry,
   output: {
     path: __dirname,
     filename: "Code.js",
   },
-  plugins: [new GasPlugin()],
+  plugins: [
+    new GasPlugin({
+      autoGlobalExportsFiles: [entry],
+    }),
+  ],
   devtool: false,
 };

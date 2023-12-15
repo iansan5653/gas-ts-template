@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc && webpack",
+    "build": "rm -rf build && tsc && webpack",
     "push": "npm run build && clasp push -f",
     "deploy": "npm run push && clasp deploy",
     "lint": "eslint",

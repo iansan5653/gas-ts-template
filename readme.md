@@ -67,7 +67,8 @@ have Node & npm installed):
 - `npm run deploy` Build and push your code, then create a new versioned
   [deployment](https://developers.google.com/apps-script/concepts/deployments).
 
-You can also run any [Clasp command](https://developers.google.com/apps-script/guides/clasp) with `npx clasp <command>`.
+You can also run any [Clasp command](https://developers.google.com/apps-script/guides/clasp) with
+`npx clasp <command>`.
 
 ## Automated GitHub Workflow
 
@@ -97,28 +98,23 @@ In order for your Google Apps to run any of your code, you'll need to expose one
 to the engine. In the traditional Google Apps Script environment, you'd do this by declaring global
 functions, however in this setup there is no concept of 'global' as all files are modules.
 
-Instead, you need to add these to the `global` object. This object type is declared in
-`src/global.d.ts` so you can assign to it from any file, although as a matter of best-practice you
-may want to confine global assignments to your `index.ts` file. Any function added to the `global`
-object will be available under that name to all
+Instead, all (and only) functions exported from `index.ts` will be available to Google Apps Script.
+Any function added to the `global` object will be available= to all
 [triggers](https://developers.google.com/apps-script/guides/triggers) and anywhere else Google Apps
 might need to call your function, such as from a
 [custom menu](https://developers.google.com/apps-script/guides/menus).
 
-Note that the field in `global` that you assign the function, not the function's name, is treated as
-the function name. For example, the following function will be called by the `onOpen` trigger, _not_
-the `onEdit` trigger:
+Examples for all the simple triggers are given in
+[`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts#L39-L43).
+
+For cleaner, more usable code, it may be useful to reference functions by their `name` property instead of hardcoding the name into code.
+For example:
 
 ```ts
-function onEdit() {}
-
-global.onOpen = onEdit;
+const createButton = CardService.newTextButton()
+  .setText("Create")
+  .setOnClickAction(CardService.newAction().setFunctionName(onClickCreateEvent.name)); // instead of "onClickCreateEvent"
 ```
-
-Further documentation is provided with the `global` type definition in
-[`global.d.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/global.d.ts) and
-examples for all the simple triggers are given in
-[`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts#L39-L43).
 
 ### Circular Dependencies
 
@@ -139,7 +135,6 @@ project and you know they are wrong, try checking for circular dependencies usin
   - `example.ts` Gives an example of how to export something from a local file.
   - `index.ts` Provides you with the five basic triggers prebuilt, as well as an example of how to
     import from a local file.
-  - `global.d.ts` Provides type-definitions for the global object from which triggers are exported.
 - `.clasp.json` Provides the configuration for Clasp, the command-line tool which pushes code to
   Google Apps Script.
 - `.claspignore` Tells Clasp to ignore every file except for `Code.js`, `appsscript.json`, and
