@@ -61,8 +61,13 @@ have Node & npm installed):
   this once on each device you use.
 - `npm run pull` Fetch the latest changes from Google Apps Script. You should only need to do this
   if you change the project settings.
-- **`npm run deploy` Build your project and push it to Google Apps in one step.** The first time you
-  run this, you will be prompted to log in to your Google account.
+- **`npm run push` Build your project and push it to Google Apps in one step.** The first time you
+  run this, you will be prompted to log in to your Google account. This command will automatically
+  update any test deployments.
+- `npm run deploy` Build and push your code, then create a new versioned
+  [deployment](https://developers.google.com/apps-script/concepts/deployments).
+
+You can also run any [Clasp command](https://developers.google.com/apps-script/guides/clasp) with `npx clasp <command>`.
 
 ## Automated GitHub Workflow
 
