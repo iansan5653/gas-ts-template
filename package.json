@@ -4,7 +4,7 @@
   "description": "A Google Apps Script project.",
   "scripts": {
     "build": "tsc && webpack",
-    "push": "npm run build && clasp push -f",
+    "deploy": "npm run build && clasp push -f",
     "lint": "eslint",
     "format": "prettier",
     "login": "clasp login"
