@@ -4,7 +4,7 @@
     "push": "npm run build && clasp push -f",
     "deploy": "npm run push && clasp deploy",
     "lint": "eslint",
-    "format": "prettier",
+    "format": "prettier . --write",
     "login": "clasp login"
   },
   "license": "GPL",
