@@ -99,13 +99,13 @@ to the engine. In the traditional Google Apps Script environment, you'd do this 
 functions, however in this setup there is no concept of 'global' as all files are modules.
 
 Instead, all (and only) functions exported from `index.ts` will be available to Google Apps Script.
-Any function added to the `global` object will be available= to all
+Any function exported from `index.ts` will be accessible by all
 [triggers](https://developers.google.com/apps-script/guides/triggers) and anywhere else Google Apps
 might need to call your function, such as from a
 [custom menu](https://developers.google.com/apps-script/guides/menus).
 
 Examples for all the simple triggers are given in
-[`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts#L39-L43).
+[`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts).
 
 For cleaner, more usable code, it may be useful to reference functions by their `name` property instead of hardcoding the name into code.
 For example:
@@ -113,7 +113,10 @@ For example:
 ```ts
 const createButton = CardService.newTextButton()
   .setText("Create")
-  .setOnClickAction(CardService.newAction().setFunctionName(onClickCreateEvent.name)); // instead of "onClickCreateEvent"
+  .setOnClickAction(
+     // Here we use `onClickCreateEvent.name` instead of hardcoding `"onClickCreateEvent"`
+    CardService.newAction().setFunctionName(onClickCreateEvent.name)
+  );
 ```
 
 ### Circular Dependencies
