@@ -1,8 +1,6 @@
 // You can access any of the global GAS objects in this file. You can also
 // import local files or external dependencies:
-import { helloWorld } from "./example";
-
-console.log(helloWorld);
+export { helloWorld } from "./example";
 
 // Simple Triggers: These five export functions are reserved export function names that are
 // called by Google Apps when the corresponding event occurs. You can safely
@@ -10,28 +8,33 @@ console.log(helloWorld);
 // for anything else.
 // See: https://developers.google.com/apps-script/guides/triggers
 
-export function onOpen(
+// NOTE: only `export {...}` syntax will work. You cannot define and export a trigger in
+// the same line.
+
+function onOpen(
   e:
     | GoogleAppsScript.Events.DocsOnOpen
     | GoogleAppsScript.Events.SlidesOnOpen
     | GoogleAppsScript.Events.SheetsOnOpen
-    | GoogleAppsScript.Events.FormsOnOpen
+    | GoogleAppsScript.Events.FormsOnOpen,
 ): void {
   console.log(e);
 }
 
-export function onEdit(e: GoogleAppsScript.Events.SheetsOnEdit): void {
+function onEdit(e: GoogleAppsScript.Events.SheetsOnEdit): void {
   console.log(e);
 }
 
-export function onInstall(e: GoogleAppsScript.Events.AddonOnInstall): void {
+function onInstall(e: GoogleAppsScript.Events.AddonOnInstall): void {
   console.log(e);
 }
 
-export function doGet(e: GoogleAppsScript.Events.DoGet): void {
+function doGet(e: GoogleAppsScript.Events.DoGet): void {
   console.log(e);
 }
 
-export function doPost(e: GoogleAppsScript.Events.DoPost): void {
+function doPost(e: GoogleAppsScript.Events.DoPost): void {
   console.log(e);
 }
+
+export { onOpen, onEdit, onInstall, doGet, doPost };

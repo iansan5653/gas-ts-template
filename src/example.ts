@@ -1,1 +1,3 @@
-export const helloWorld = "Hello, world!";
+export function helloWorld() {
+  console.log("Hello, world!");
+}
