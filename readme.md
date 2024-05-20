@@ -98,11 +98,28 @@ In order for your Google Apps to run any of your code, you'll need to expose one
 to the engine. In the traditional Google Apps Script environment, you'd do this by declaring global
 functions, however in this setup there is no concept of 'global' as all files are modules.
 
-Instead, all (and only) functions exported from `index.ts` will be available to Google Apps Script.
+Instead, only functions exported from `index.ts` will be available to Google Apps Script.
 Any function exported from `index.ts` will be accessible by all
 [triggers](https://developers.google.com/apps-script/guides/triggers) and anywhere else Google Apps
 might need to call your function, such as from a
 [custom menu](https://developers.google.com/apps-script/guides/menus).
+
+Due to [a bug](https://github.com/iansan5653/gas-ts-template/issues/2) in the Webpack plugin, only exports in `export {...}` form are supported:
+
+```ts
+// ❌ Does NOT work
+export function bad1() { /* ... */ }
+
+export const bad2 = () => { /* ... */ }
+
+// ✅ Does work:
+export {good1} from "./good1.ts"
+
+function good2() { /* ... */ }
+const good3 = () => { /* ... */ }
+
+export {good2, good3}
+```
 
 Examples for all the simple triggers are given in
 [`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts).
