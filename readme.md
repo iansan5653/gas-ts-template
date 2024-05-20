@@ -1,9 +1,5 @@
 # Google Apps & TypeScript Project Template
 
-**Note: The GitHub Workflows build will always be failing for this template repo as it doesn't have
-a package-lock.json file. This is intentional! When you run `npm i` for your project, just make sure
-to commit the lockfile.**
-
 This repository provides a simple template to start a new
 [Google Apps Script](https://developers.google.com/apps-script) project with TypeScript. Building,
 linting, formatting, and pushing to Google Apps are all built in.
