@@ -122,7 +122,7 @@ export {good2, good3}
 ```
 
 Examples for all the simple triggers are given in
-[`index.ts`](https://github.com/iansan5653/gas-ts-template/blob/master/src/index.ts).
+[`index.ts`](./src/index.ts).
 
 For cleaner, more usable code, it may be useful to reference functions by their `name` property instead of hardcoding the name into code.
 For example:
