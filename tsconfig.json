@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "esModuleInterop": true,
     "moduleResolution": "Bundler",
     "strict": true,
     "noUnusedLocals": true,
