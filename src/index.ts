@@ -1,40 +1,44 @@
-// You can access any of the global GAS objects in this file. You can also
-// import local files or external dependencies:
-export { helloWorld } from "./example";
+// Import named functions
+import { helloWorld } from "./example";
 
-// Simple Triggers: These five export functions are reserved export function names that are
-// called by Google Apps when the corresponding event occurs. You can safely
-// delete them if you won't be using them, but don't use the same export function names
-// for anything else.
-// See: https://developers.google.com/apps-script/guides/triggers
+// Example export (for local development/testing, not required for GAS)
+export { helloWorld };
 
-// NOTE: only `export {...}` syntax will work. You cannot define and export a trigger in
-// the same line.
-
+// Trigger function: onOpen
 function onOpen(
   e:
     | GoogleAppsScript.Events.DocsOnOpen
     | GoogleAppsScript.Events.SlidesOnOpen
     | GoogleAppsScript.Events.SheetsOnOpen
-    | GoogleAppsScript.Events.FormsOnOpen,
+    | GoogleAppsScript.Events.FormsOnOpen
 ): void {
-  console.log(e);
+  console.log("onOpen triggered:", e);
 }
 
+// Trigger function: onEdit
 function onEdit(e: GoogleAppsScript.Events.SheetsOnEdit): void {
-  console.log(e);
+  console.log("onEdit triggered:", e);
 }
 
+// Trigger function: onInstall
 function onInstall(e: GoogleAppsScript.Events.AddonOnInstall): void {
-  console.log(e);
+  console.log("onInstall triggered:", e);
 }
 
-function doGet(e: GoogleAppsScript.Events.DoGet): void {
-  console.log(e);
+// Web app endpoint: GET
+function doGet(): GoogleAppsScript.Content.TextOutput {
+  return ContentService.createTextOutput("Hello from doGet!");
 }
 
+// Web app endpoint: POST
 function doPost(e: GoogleAppsScript.Events.DoPost): void {
-  console.log(e);
+  console.log("doPost triggered:", e);
 }
 
-export { onOpen, onEdit, onInstall, doGet, doPost };
+// Attach functions to globalThis for Apps Script to find them
+(globalThis as any).onOpen = onOpen;
+(globalThis as any).onEdit = onEdit;
+(globalThis as any).onInstall = onInstall;
+(globalThis as any).doGet = doGet;
+(globalThis as any).doPost = doPost;
+
