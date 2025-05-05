@@ -1,15 +1,16 @@
+const path = require("path");
 const GasPlugin = require("gas-webpack-plugin");
 
 const entry = "./build/index.js";
 
 module.exports = {
-  // we always use dev mode because bundle size is unimportant - code runs server-side
   mode: "development",
   context: __dirname,
   entry,
   output: {
-    path: __dirname,
-    filename: "Code.js",
+    path: path.resolve(__dirname, "build"), // ✅ Save to build/
+    filename: "Code.js",                     // ✅ Required file name
+    libraryTarget: "this",                   // ✅ Ensures global scope for doGet, etc.
   },
   plugins: [
     new GasPlugin({
@@ -18,3 +19,4 @@ module.exports = {
   ],
   devtool: false,
 };
+
