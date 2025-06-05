@@ -12,16 +12,14 @@ jobs:
     name: Build & Lint
     steps:
       - name: Fetch Repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Cache Dependencies
-        uses: actions/cache@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: "20"
+          cache: "npm"
       - name: Install Dependencies
         run: npm ci
       - name: Lint
