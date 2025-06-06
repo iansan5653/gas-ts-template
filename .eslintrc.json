@@ -6,14 +6,9 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "googleappsscript"
-  ],
+  "plugins": ["@typescript-eslint", "googleappsscript"],
   "env": {
     "googleappsscript/googleappsscript": true
   },
-  "ignorePatterns": [
-    "*.js"
-  ]
+  "ignorePatterns": ["*.js"]
 }
